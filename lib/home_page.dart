@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:timemanager/welcome_screen.dart';
 
-
 void f({@required int x}) {}
 
 void g(x) {
@@ -19,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.yellow[800],
         title: Row(
           children: <Widget>[
             Icon(
@@ -40,11 +39,11 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Container(
             height: 10.0,
-            color: Colors.white,
+
           )
         ],
       ),
-      backgroundColor: Colors.blue[200],
+      backgroundColor: Colors.yellow[200],
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
         child: new Row(
@@ -58,12 +57,11 @@ class _HomePageState extends State<HomePage> {
                   Text('Back'),
                 ],
               ),
-
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
-                },
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WelcomeScreen()));
+              },
             ),
-
           ],
         ),
       ),
