@@ -1,43 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:timemanager/welcome_screen.dart';
 
-void main() {
-  runApp(HomePage());
-}
+void main() => runApp(TimeManager());
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class TimeManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      backgroundColor: Colors.brown[200],
-      appBar: AppBar(
-        backgroundColor: Colors.brown[600],
-        title: Center(
-          child: Text(
-            'TI.MA',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Text('Body'),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.brown,
-      ),
-    ));
+      theme: ThemeData.dark(),
+      home: WelcomeScreen(),
+    );
   }
 }
