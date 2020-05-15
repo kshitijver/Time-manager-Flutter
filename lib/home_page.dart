@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:timemanager/welcome_screen.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 void f({@required int x}) {}
 
@@ -14,11 +16,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  CalendarController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = CalendarController();
+  }
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _openDrawer() {
+    _scaffoldKey.currentState.openDrawer();
+  }
+
+  void _closeDrawer() {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow[800],
+        backgroundColor: Colors.blue[800],
         title: Row(
           children: <Widget>[
             Icon(
@@ -36,16 +55,94 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Container(
-            height: 10.0,
 
+          Expanded(
+            child: TableCalendar(
+              initialCalendarFormat: CalendarFormat.week,
+
+              calendarStyle: CalendarStyle(
+                todayColor: Colors.red,
+
+                outsideWeekendStyle: TextStyle(
+                  color: Colors.blue,
+                ),
+                weekendStyle: TextStyle(
+                  color: Colors.blue,
+                ),
+                selectedColor: Colors.blue,
+                outsideHolidayStyle: TextStyle(
+                  color: Colors.blue,
+                ),
+                holidayStyle: TextStyle(
+                  color: Colors.blue,
+                ),
+                weekdayStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                )
+              ),
+              calendarController: _controller,
+            ),
           )
         ],
       ),
-      backgroundColor: Colors.yellow[200],
+      drawer: Drawer(
+        child: Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Image.asset(
+                'images/clock2.png',
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Card(
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          'ASSIGNMENTS',
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+                child: Card(
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.warning,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child: Text(
+                          'QUIZ',
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // Enable opening the drawer with a swipe gesture.
+      drawerEnableOpenDragGesture: true,
+      backgroundColor: Color(0xFF92D1D8),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
+        elevation: 0.0,
+        color: Color(0xFF92D1D8),
         child: new Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

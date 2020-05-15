@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timemanager/welcome_screen.dart';
 
-
-
-
 void main() => runApp(TimeManager());
 
 class TimeManager extends StatefulWidget {
@@ -17,6 +14,7 @@ class _TimeManagerState extends State<TimeManager> {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: WelcomeScreen(),
+
     );
   }
 }
