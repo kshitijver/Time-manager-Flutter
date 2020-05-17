@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timemanager/home_page.dart';
+import 'package:timemanager/Home_page.dart';
 
 class WelcomeScreen extends StatefulWidget {
   @override

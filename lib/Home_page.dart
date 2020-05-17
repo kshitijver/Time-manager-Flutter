@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:timemanager/welcome_screen.dart';
+import 'package:timemanager/welcom_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 void f({@required int x}) {}
@@ -55,10 +55,12 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
 
-          Expanded(
+          Card(
+
+            color: Color(0xFF92D1D8),
             child: TableCalendar(
               initialCalendarFormat: CalendarFormat.week,
 

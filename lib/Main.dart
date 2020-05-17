@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timemanager/welcome_screen.dart';
+import 'package:timemanager/welcom_screen.dart';
 
 void main() => runApp(TimeManager());
 
