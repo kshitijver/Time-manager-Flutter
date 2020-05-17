@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timemanager/calendar_screen.dart';
 import 'package:timemanager/constants.dart';
+import 'package:timemanager/login_screen.dart';
 
 class MainScrollingList extends StatelessWidget {
   const MainScrollingList({
@@ -12,6 +13,9 @@ class MainScrollingList extends StatelessWidget {
     return ListView(
       children: <Widget>[
         GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, LoginScreen.id);
+          },
           child: Container(
             decoration: kHomeScreenCardDecoration.copyWith(
               image: DecorationImage(

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:timemanager/constants.dart';
-import 'registration_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String id = 'login_screen';
+class RegistrationScreen extends StatefulWidget {
+  static const String id = 'registration_screen';
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegistrationScreenState createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 200.0,
                   child: Icon(
                     Icons.chat,
-                    size: 150.0,
+                    size: 150,
                     color: Colors.lightBlueAccent,
                   ),
                 ),
@@ -53,33 +52,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.lightBlueAccent,
-                elevation: 5.0,
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                child: MaterialButton(
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
               child: Material(
                 color: Colors.blueAccent,
                 elevation: 5.0,
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(

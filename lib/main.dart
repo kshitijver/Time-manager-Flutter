@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timemanager/login_screen.dart';
 import 'package:timemanager/main_screen.dart';
+import 'package:timemanager/registration_screen.dart';
 import 'package:timemanager/welcome_screen.dart';
 import 'calendar_screen.dart';
 import 'package:intl/intl.dart';
@@ -29,6 +30,7 @@ class _TimeManagerState extends State<TimeManager> {
         MainScreen.id: (context) => MainScreen(),
         CalendarScreen.id: (context) => CalendarScreen(),
         LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
       },
     );
   }
