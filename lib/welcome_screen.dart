@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:timemanager/Home_page.dart';
+import 'package:timemanager/main_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static const String id = 'welcome_screen';
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -15,10 +17,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text(
-            'TI.MA.: Manage Your Time.',
-            style: TextStyle(),
-          ),
           Expanded(
             child: Container(
               child: Image(
@@ -26,30 +24,45 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
           ),
-          Center(
-            child: Text(
-              'Welcome to TIMA',
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
+            child: Row(
+              textBaseline: TextBaseline.alphabetic,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              children: <Widget>[
+                Text(
+                  'TI',
                   style: TextStyle(
-                    fontFamily: 'Pangolin',
-fontSize: 16.0,
+                    fontSize: 45.0,
+                    fontWeight: FontWeight.bold,
                   ),
-            ),
-          ),
-          Center(
-            child: Text(
-              'The Perfect Time Management Platform',
-              style: TextStyle(
-                fontFamily: 'Pangolin',
-              ),
+                ),
+                Text(
+                  'ME',
+                  style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  width: 20.0,
+                ),
+                Text(
+                  'MA',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 45.0,
+                  ),
+                ),
+                Text(
+                  'NAGER',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              ],
             ),
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 18.0),
-            child: FlatButton(
-              onPressed: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, MainScreen.id);
               },
               child: Card(
                 color: Colors.blue.shade900,
@@ -58,7 +71,8 @@ fontSize: 16.0,
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 120.0),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                   child: Text(
                     'Next',
                     textAlign: TextAlign.center,
