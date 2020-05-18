@@ -111,7 +111,6 @@ class DrawerStyling extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           DrawerHeader(
-
             decoration: BoxDecoration(
               color: Colors.blueGrey,
               image: DecorationImage(
@@ -123,12 +122,11 @@ class DrawerStyling extends StatelessWidget {
                 'OPTIONS',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: Colors.deepPurple[100],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35.0,
+                  color: Colors.deepPurple[100],
+                  fontWeight: FontWeight.bold,
+                  fontSize: 35.0,
                   fontFamily: 'Pangolin',
                   letterSpacing: 2.0,
-
                 ),
               ),
             ),
@@ -170,9 +168,9 @@ class DrawerStyling extends StatelessWidget {
             ),
           ),
           ListTile(
-           // onTap: () {
-             // Navigator.pushNamed(context, AssignScreen.id);
-            //},
+            onTap: () {
+              Navigator.pushNamed(context, AssignmentScreen.id);
+            },
             leading: Icon(
               Icons.assessment,
             ),

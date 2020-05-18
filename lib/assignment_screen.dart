@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:timemanager/taskadder_popup.dart';
 import 'task_listview.dart';
+import 'tasks.dart';
 
 class AssignmentScreen extends StatefulWidget {
   static const String id = 'assignment_screen';
@@ -8,15 +10,29 @@ class AssignmentScreen extends StatefulWidget {
 }
 
 class _AssignmentScreenState extends State<AssignmentScreen> {
+  String enteredTask;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     floatingActionButton: FloatingActionButton(
-       onPressed: (){
-
-       },
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => AdderPopUp(
+              addedTask: (value) {
+                enteredTask = value;
+              },
+              add: () {
+                setState(() {
+                  tasks.add(Task(name: enteredTask));
+                });
+                Navigator.pop(context);
+              },
+            ),
+          );
+        },
         backgroundColor: Colors.deepPurpleAccent,
-       child: Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -24,7 +40,6 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
         leading: Icon(Icons.assessment),
         title: Text('To-Do Assignments'),
       ),
-
       body: SafeArea(
         child: Container(
           height: double.infinity,
@@ -37,13 +52,9 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: TasksList(),
-
           ),
-
         ),
-
       ),
-
     );
   }
 }
