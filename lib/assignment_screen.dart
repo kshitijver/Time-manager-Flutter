@@ -1,43 +1,33 @@
-import 'package:timemanager/main.dart';
 import 'package:flutter/material.dart';
+import 'task_listview.dart';
 
-class AssignScreen extends StatefulWidget {
-  static const String id = 'assign_screen';
+class AssignmentScreen extends StatefulWidget {
+  static const String id = 'assignment_screen';
   @override
-  _AssignScreenState createState() => _AssignScreenState();
+  _AssignmentScreenState createState() => _AssignmentScreenState();
 }
 
-class _AssignScreenState extends State<AssignScreen> {
+class _AssignmentScreenState extends State<AssignmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Hero(
-            tag: 'assignment_logo',
-            child: Icon(
-              Icons.assignment,
-            )),
-        title: Text(
-          'Assignments',
-        ),
+      floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurpleAccent,
+        child: Icon(Icons.add),
       ),
-      body: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/assignscreen.jpg'),
-            fit: BoxFit.cover,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
+        leading: Icon(Icons.assessment),
+        title: Text('To-Do Assignments'),
+      ),
+      body: SafeArea(
+        child: Container(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: TasksList(),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        elevation: 6.0,
-        backgroundColor: Colors.deepPurpleAccent,
-        onPressed: () {
-
-        },
       ),
     );
   }

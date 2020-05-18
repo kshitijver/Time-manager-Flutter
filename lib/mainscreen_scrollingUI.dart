@@ -3,13 +3,8 @@ import 'package:timemanager/assignment_screen.dart';
 import 'package:timemanager/calendar_screen.dart';
 import 'package:timemanager/constants.dart';
 import 'package:timemanager/login_screen.dart';
-import 'package:timemanager/workout_screen.dart';
 
 class MainScrollingList extends StatelessWidget {
-  const MainScrollingList({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -62,7 +57,7 @@ class MainScrollingList extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, AssignScreen.id);
+            Navigator.pushNamed(context, AssignmentScreen.id);
           },
           child: Container(
             decoration: kHomeScreenCardDecoration.copyWith(
@@ -84,9 +79,6 @@ class MainScrollingList extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: (){
-            Navigator.pushNamed(context, WorkoutScreen.id);
-          },
           child: Container(
             decoration: kHomeScreenCardDecoration.copyWith(
                 image: DecorationImage(

@@ -5,7 +5,6 @@ import 'package:timemanager/login_screen.dart';
 import 'package:timemanager/main_screen.dart';
 import 'package:timemanager/registration_screen.dart';
 import 'package:timemanager/welcome_screen.dart';
-import 'package:timemanager/workout_screen.dart';
 import 'calendar_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -31,8 +30,7 @@ class _TimeManagerState extends State<TimeManager> {
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
-        AssignScreen.id: (context) => AssignScreen(),
-        WorkoutScreen.id: (context) => WorkoutScreen(),
+        AssignmentScreen.id: (context) => AssignmentScreen(),
       },
     );
   }
