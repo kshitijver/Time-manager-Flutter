@@ -11,6 +11,8 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final emailContorller = TextEditingController();
+  final passwordContorller = TextEditingController();
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
@@ -44,6 +46,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 42.0,
               ),
               TextField(
+                controller: emailContorller,
                 onChanged: (value) {
                   email = value;
                 },
@@ -57,6 +60,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 8.0,
               ),
               TextField(
+                controller: passwordContorller,
                 onChanged: (value) {
                   password = value;
                 },
@@ -81,6 +85,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         final newUser =
                             await _auth.createUserWithEmailAndPassword(
                                 email: email, password: password);
+                        emailContorller.clear();
+                        passwordContorller.clear();
                         if (newUser != null) {
                           Navigator.pushNamed(context, ChatScreen.id);
                         }

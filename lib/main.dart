@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timemanager/assignment_screen.dart';
 import 'package:timemanager/chat_screen.dart';
 import 'package:timemanager/login_screen.dart';
 import 'package:timemanager/main_screen.dart';
@@ -29,6 +30,7 @@ class _TimeManagerState extends State<TimeManager> {
         LoginScreen.id: (context) => LoginScreen(),
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
+        AssignmentScreen.id: (context) => AssignmentScreen(),
       },
     );
   }
