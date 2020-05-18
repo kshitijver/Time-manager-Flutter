@@ -1,18 +1,16 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:timemanager/chat_screen.dart';
 import 'package:timemanager/constants.dart';
-import 'registration_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const String id = 'login_screen';
+class RegistrationScreen extends StatefulWidget {
+  static const String id = 'registration_screen';
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegistrationScreenState createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final messageTextController = TextEditingController();
+class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
@@ -36,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 200.0,
                     child: Icon(
                       Icons.chat,
-                      size: 150.0,
+                      size: 150,
                       color: Colors.lightBlueAccent,
                     ),
                   ),
@@ -46,7 +44,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 42.0,
               ),
               TextField(
-                controller: messageTextController,
                 onChanged: (value) {
                   email = value;
                 },
@@ -60,7 +57,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 8.0,
               ),
               TextField(
-                controller: messageTextController,
                 onChanged: (value) {
                   password = value;
                 },
@@ -71,9 +67,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
+                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
                 child: Material(
-                  color: Colors.lightBlueAccent,
+                  color: Colors.blueAccent,
                   elevation: 5.0,
                   borderRadius: BorderRadius.all(Radius.circular(30.0)),
                   child: MaterialButton(
@@ -82,9 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         showSpinner = true;
                       });
                       try {
-                        final newUser = await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
-                        messageTextController.clear();
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                                email: email, password: password);
                         if (newUser != null) {
                           Navigator.pushNamed(context, ChatScreen.id);
                         }
@@ -94,27 +90,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         showSpinner = false;
                       });
-                    },
-                    minWidth: 200.0,
-                    height: 42.0,
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
-                child: Material(
-                  color: Colors.blueAccent,
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, RegistrationScreen.id);
                     },
                     minWidth: 200.0,
                     height: 42.0,
