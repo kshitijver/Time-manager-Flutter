@@ -12,22 +12,23 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         leading: Hero(
             tag: 'workout_logo',
             child: Icon(
               Icons.accessibility_new,
-            )),
+            ),),
         title: Text(
           'Workout',
         ),
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.deepPurple,
       ),
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/workoutscreen.jpg'),
+            image: AssetImage('images/backgroundworkout.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,6 +43,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         backgroundColor: Colors.white,
         onPressed: () {},
       ),
+
     );
   }
 }

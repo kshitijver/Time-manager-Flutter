@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timemanager/assignment_screen.dart';
 import 'package:timemanager/calendar_screen.dart';
 import 'package:timemanager/login_screen.dart';
+import 'package:timemanager/workout_screen.dart';
 import 'constants.dart';
 import 'mainscreen_scrollingUI.dart';
 
@@ -109,17 +111,26 @@ class DrawerStyling extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           DrawerHeader(
+
             decoration: BoxDecoration(
               color: Colors.blueGrey,
               image: DecorationImage(
                   image: AssetImage('images/Drawer.jpg'), fit: BoxFit.cover),
             ),
-            child: Text(
-              'Option',
-              style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35.0),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50.0),
+              child: Text(
+                'OPTIONS',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.deepPurple[100],
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35.0,
+                  fontFamily: 'Pangolin',
+                  letterSpacing: 2.0,
+
+                ),
+              ),
             ),
           ),
           ListTile(
@@ -159,11 +170,29 @@ class DrawerStyling extends StatelessWidget {
             ),
           ),
           ListTile(
+           // onTap: () {
+             // Navigator.pushNamed(context, AssignScreen.id);
+            //},
             leading: Icon(
               Icons.assessment,
             ),
             title: Text(
               'Assignments',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, WorkoutScreen.id);
+            },
+            leading: Icon(
+              Icons.accessibility_new,
+            ),
+            title: Text(
+              'Workout',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
