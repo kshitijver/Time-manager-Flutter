@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:timemanager/assignment_screen.dart';
-import 'package:timemanager/chat_screen.dart';
-import 'package:timemanager/login_screen.dart';
-import 'package:timemanager/main_screen.dart';
-import 'package:timemanager/registration_screen.dart';
+import 'package:timemanager/Screens/assignment_screen.dart';
+import 'package:timemanager/Screens/chat_screen.dart';
+import 'package:timemanager/Screens/login_screen.dart';
+import 'package:timemanager/Screens/main_screen.dart';
+import 'package:timemanager/Screens/registration_screen.dart';
 import 'package:timemanager/welcome_screen.dart';
-import 'package:timemanager/workout_screen.dart';
-import 'calendar_screen.dart';
+import 'package:timemanager/Screens/workout_screen.dart';
+import 'Screens/calendar_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
@@ -33,7 +33,6 @@ class _TimeManagerState extends State<TimeManager> {
         ChatScreen.id: (context) => ChatScreen(),
         AssignmentScreen.id: (context) => AssignmentScreen(),
         WorkoutScreen.id: (context) => WorkoutScreen(),
-
       },
     );
   }

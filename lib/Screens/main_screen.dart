@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:timemanager/assignment_screen.dart';
-import 'package:timemanager/calendar_screen.dart';
-import 'package:timemanager/login_screen.dart';
-import 'package:timemanager/workout_screen.dart';
-import 'constants.dart';
-import 'mainscreen_scrollingUI.dart';
+import 'package:timemanager/Screens/assignment_screen.dart';
+import 'package:timemanager/Screens/calendar_screen.dart';
+import 'package:timemanager/Screens/login_screen.dart';
+import 'package:timemanager/Screens/workout_screen.dart';
+import '../UserInterface/mainscreen_scrollingUI.dart';
 
 class MainScreen extends StatefulWidget {
   static const String id = 'main_screen';
@@ -67,11 +66,11 @@ class _MainScreenState extends State<MainScreen> {
                   Text(
                     'TI-MA',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'PermanentMarker',
-                        letterSpacing: 3.0,
-                        fontSize: 40.0,
-                        ),
+                      color: Colors.white,
+                      fontFamily: 'PermanentMarker',
+                      letterSpacing: 3.0,
+                      fontSize: 40.0,
+                    ),
                   ),
                 ],
               ),

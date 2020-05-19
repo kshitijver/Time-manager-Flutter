@@ -1,8 +1,7 @@
-import 'package:timemanager/main.dart';
 import 'package:flutter/material.dart';
-import 'package:timemanager/taskadder_popup.dart';
-import 'task_listview.dart';
-import 'tasks.dart';
+import '../UserInterface/task_listview.dart';
+import '../UserInterface/tasks.dart';
+import '../UserInterface/workout_adderPopup.dart';
 
 class WorkoutScreen extends StatefulWidget {
   static const String id = 'workout_screen';
@@ -11,18 +10,18 @@ class WorkoutScreen extends StatefulWidget {
   _WorkoutScreenState createState() => _WorkoutScreenState();
 }
 
-class _WorkoutScreenState extends State<WorkoutScreen>{
+class _WorkoutScreenState extends State<WorkoutScreen> {
   String enteredTask;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         leading: Hero(
-            tag: 'workout_logo',
-            child: Icon(
-              Icons.accessibility_new,
-            ),),
+          tag: 'workout_logo',
+          child: Icon(
+            Icons.accessibility_new,
+          ),
+        ),
         title: Text(
           'Workout',
           style: TextStyle(
@@ -43,20 +42,22 @@ class _WorkoutScreenState extends State<WorkoutScreen>{
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
-          child: TasksList(),
+          child: TasksList(
+            variable: workouts,
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => AdderPopUp(
+            builder: (context) => WorkoutAdderPopUp(
               addedTask: (value) {
                 enteredTask = value;
               },
               add: () {
                 setState(() {
-                  tasks.add(Task(name: enteredTask));
+                  workouts.add(Task(name: enteredTask));
                 });
                 Navigator.pop(context);
               },
@@ -70,9 +71,7 @@ class _WorkoutScreenState extends State<WorkoutScreen>{
         ),
         elevation: 10.0,
         backgroundColor: Colors.white,
-
       ),
-
     );
   }
 }

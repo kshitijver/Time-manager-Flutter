@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:timemanager/taskadder_popup.dart';
-import 'task_listview.dart';
-import 'tasks.dart';
+import 'package:timemanager/UserInterface/taskadder_popup.dart';
+import '../UserInterface/task_listview.dart';
+import '../UserInterface/tasks.dart';
 
 class AssignmentScreen extends StatefulWidget {
   static const String id = 'assignment_screen';
@@ -24,7 +24,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
               },
               add: () {
                 setState(() {
-                  tasks.add(Task(name: enteredTask));
+                  assignments.add(Task(name: enteredTask));
                 });
                 Navigator.pop(context);
               },
@@ -38,12 +38,14 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
         leading: Icon(Icons.assessment),
-        title: Text('To-Do Assignments',
-        style: TextStyle(
-          fontFamily: 'Piedra',
-          fontSize: 25.0,
-          letterSpacing: 1.5,
-        ),),
+        title: Text(
+          'To-Do Assignments',
+          style: TextStyle(
+            fontFamily: 'Piedra',
+            fontSize: 25.0,
+            letterSpacing: 1.5,
+          ),
+        ),
       ),
       body: SafeArea(
         child: Container(
@@ -56,7 +58,9 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: TasksList(),
+            child: TasksList(
+              variable: assignments,
+            ),
           ),
         ),
       ),

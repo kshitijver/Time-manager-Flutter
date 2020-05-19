@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'task_tile.dart';
 import 'tasks.dart';
 
-List<Task> tasks = [];
+List<Task> assignments = [];
+List<Task> workouts = [];
 
 class TasksList extends StatefulWidget {
+  final variable;
+  TasksList({this.variable});
   @override
   _TasksListState createState() => _TasksListState();
 }
@@ -15,21 +18,21 @@ class _TasksListState extends State<TasksList> {
     return ListView.builder(
       itemBuilder: (context, index) {
         return TaskTile(
-          taskTitle: tasks[index].name,
-          isChecked: tasks[index].isDone,
+          taskTitle: widget.variable[index].name,
+          isChecked: widget.variable[index].isDone,
           toggleCheckboxState: (bool value) {
             setState(() {
-              tasks[index].done();
+              widget.variable[index].done();
             });
           },
           deletingTask: () {
             setState(() {
-              tasks.removeAt(index);
+              widget.variable.removeAt(index);
             });
           },
         );
       },
-      itemCount: tasks.length,
+      itemCount: widget.variable.length,
     );
   }
 }

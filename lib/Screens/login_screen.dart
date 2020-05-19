@@ -1,18 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:timemanager/chat_screen.dart';
-import 'package:timemanager/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:timemanager/Screens/chat_screen.dart';
+import 'package:timemanager/UserInterface/constants.dart';
+import 'registration_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-class RegistrationScreen extends StatefulWidget {
-  static const String id = 'registration_screen';
+class LoginScreen extends StatefulWidget {
+  static const String id = 'login_screen';
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
-  final emailContorller = TextEditingController();
-  final passwordContorller = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   String email;
   String password;
@@ -36,7 +37,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     height: 200.0,
                     child: Icon(
                       Icons.chat,
-                      size: 150,
+                      size: 150.0,
                       color: Colors.lightBlueAccent,
                     ),
                   ),
@@ -46,21 +47,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 42.0,
               ),
               TextField(
-                controller: emailContorller,
+                controller: emailController,
                 onChanged: (value) {
                   email = value;
                 },
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.emailAddress,
                 decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Username@email.com',
+                  hintText: 'username@email.com',
                 ),
               ),
               SizedBox(
                 height: 8.0,
               ),
               TextField(
-                controller: passwordContorller,
+                controller: passwordController,
                 onChanged: (value) {
                   password = value;
                 },
@@ -71,9 +72,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
+                padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: Material(
-                  color: Colors.blueAccent,
+                  color: Colors.lightBlueAccent,
                   elevation: 5.0,
                   borderRadius: BorderRadius.all(Radius.circular(30.0)),
                   child: MaterialButton(
@@ -82,11 +83,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         showSpinner = true;
                       });
                       try {
-                        final newUser =
-                            await _auth.createUserWithEmailAndPassword(
-                                email: email, password: password);
-                        emailContorller.clear();
-                        passwordContorller.clear();
+                        final newUser = await _auth.signInWithEmailAndPassword(
+                            email: email, password: password);
+                        emailController.clear();
+                        passwordController.clear();
                         if (newUser != null) {
                           Navigator.pushNamed(context, ChatScreen.id);
                         }
@@ -96,6 +96,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       setState(() {
                         showSpinner = false;
                       });
+                    },
+                    minWidth: 200.0,
+                    height: 42.0,
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 60.0),
+                child: Material(
+                  color: Colors.blueAccent,
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  child: MaterialButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegistrationScreen.id);
                     },
                     minWidth: 200.0,
                     height: 42.0,

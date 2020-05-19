@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:timemanager/assignment_screen.dart';
-import 'package:timemanager/calendar_screen.dart';
-import 'package:timemanager/constants.dart';
-import 'package:timemanager/login_screen.dart';
-import 'package:timemanager/workout_screen.dart';
+import 'package:timemanager/Screens/assignment_screen.dart';
+import 'package:timemanager/Screens/calendar_screen.dart';
+import 'package:timemanager/UserInterface/constants.dart';
+import 'package:timemanager/Screens/login_screen.dart';
+import 'package:timemanager/Screens/workout_screen.dart';
 
 class MainScrollingList extends StatelessWidget {
   @override
@@ -90,7 +90,6 @@ class MainScrollingList extends StatelessWidget {
             Navigator.pushNamed(context, WorkoutScreen.id);
           },
           child: Container(
-
             decoration: kHomeScreenCardDecoration.copyWith(
                 image: DecorationImage(
               image: AssetImage('images/Exercise.jpg'),
