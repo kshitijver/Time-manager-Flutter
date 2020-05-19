@@ -36,7 +36,11 @@ class _CalendarScreenState extends State<CalendarScreen> {
         ),
         title: Text(
           'Calendar',
-          style: TextStyle(fontSize: 20.0),
+          style: TextStyle(
+            fontFamily: 'Piedra',
+            fontSize: 25.0,
+            letterSpacing: 1.5,
+          ),
         ),
         backgroundColor: Colors.deepPurpleAccent,
       ),

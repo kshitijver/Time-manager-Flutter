@@ -38,7 +38,12 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurpleAccent,
         leading: Icon(Icons.assessment),
-        title: Text('To-Do Assignments'),
+        title: Text('To-Do Assignments',
+        style: TextStyle(
+          fontFamily: 'Piedra',
+          fontSize: 25.0,
+          letterSpacing: 1.5,
+        ),),
       ),
       body: SafeArea(
         child: Container(

@@ -33,4 +33,12 @@ flutter:
     - family: Pangolin
       fonts:
         - asset: fonts/Pangolin-Regular.ttf
-
+    - family: LobsterTwo
+      fonts:
+        - asset: fonts/LobsterTwo-Regular.ttf
+    - family: PermanentMarker
+      fonts:
+        - asset: fonts/PermanentMarker-Regular.ttf
+    - family: Piedra
+      fonts:
+          - asset: fonts/Piedra-Regular.ttf

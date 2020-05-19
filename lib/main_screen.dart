@@ -68,8 +68,10 @@ class _MainScreenState extends State<MainScreen> {
                     'TI-MA',
                     style: TextStyle(
                         color: Colors.white,
+                        fontFamily: 'PermanentMarker',
+                        letterSpacing: 3.0,
                         fontSize: 40.0,
-                        fontWeight: FontWeight.bold),
+                        ),
                   ),
                 ],
               ),
@@ -208,7 +210,7 @@ class DrawerStyling extends StatelessWidget {
                 fontSize: 18.0,
               ),
             ),
-          ),
+          ), //home button
         ],
       ),
     );

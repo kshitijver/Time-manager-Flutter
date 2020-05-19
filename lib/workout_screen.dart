@@ -8,7 +8,7 @@ class WorkoutScreen extends StatefulWidget {
   _WorkoutScreenState createState() => _WorkoutScreenState();
 }
 
-class _WorkoutScreenState extends State<WorkoutScreen> {
+class _WorkoutScreenState extends State<WorkoutScreen>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +21,11 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             ),),
         title: Text(
           'Workout',
+          style: TextStyle(
+            fontFamily: 'Piedra',
+            fontSize: 25.0,
+            letterSpacing: 1.5,
+          ),
         ),
         backgroundColor: Colors.deepPurple,
       ),

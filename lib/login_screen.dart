@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 textAlign: TextAlign.center,
                 keyboardType: TextInputType.emailAddress,
                 decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Username@email.com',
+                  hintText: 'username@email.com',
                 ),
               ),
               SizedBox(

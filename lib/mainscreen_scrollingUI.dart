@@ -26,7 +26,9 @@ class MainScrollingList extends StatelessWidget {
             child: Text(
               'Chats',
               style: TextStyle(
-                fontSize: 20.0,
+                fontFamily: 'LobsterTwo',
+                letterSpacing: 1.0,
+                fontSize: 25.0,
               ),
             ),
             height: 200.0,
@@ -49,7 +51,9 @@ class MainScrollingList extends StatelessWidget {
               'Calendar',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontFamily: 'LobsterTwo',
+                letterSpacing: 1.0,
+                fontSize: 25.0,
               ),
             ),
             height: 200.0,
@@ -72,7 +76,9 @@ class MainScrollingList extends StatelessWidget {
               'Assignments',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontFamily: 'LobsterTwo',
+                letterSpacing: 1.0,
+                fontSize: 25.0,
               ),
             ),
             height: 200.0,
@@ -95,7 +101,9 @@ class MainScrollingList extends StatelessWidget {
             child: Text(
               'Workout',
               style: TextStyle(
-                fontSize: 20.0,
+                fontFamily: 'LobsterTwo',
+                letterSpacing: 1.0,
+                fontSize: 25.0,
               ),
             ),
             height: 200.0,
