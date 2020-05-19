@@ -12,7 +12,7 @@ class AdderPopUp extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Text(
-            'Add Workout Session',
+            'Add Task',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.lightBlueAccent,
