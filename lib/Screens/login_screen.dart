@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen>
     super.initState();
 
     animationController = AnimationController(
-        duration: Duration(milliseconds: 1500), vsync: this);
+        duration: Duration(milliseconds: 1500), value: this);
     animation = Tween(begin: -1.0, end: 0.0).animate(
       CurvedAnimation(parent: animationController, curve: Curves.fastOutSlowIn),
     );

@@ -23,7 +23,7 @@ class _ChatScreenState extends State<ChatScreen>
   void initState() {
     super.initState();
     animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(value: this, duration: Duration(seconds: 1));
     getCurrentUser();
   }
 
