@@ -17,20 +17,6 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-//      appBar: AppBar(
-//        backgroundColor: Colors.blueAccent,
-//        title: Text(
-//          'Manage Time Effectively',
-//          style: TextStyle(
-//            fontWeight: FontWeight.bold,
-//          ),
-//        ),
-//      ),
-//      bottomNavigationBar: BottomNavigationBar(
-//        backgroundColor: Colors.black,
-//        items: bottomItems,
-//        elevation: 20.0,
-//      ),
       drawer: DrawerStyling(),
       body: Container(
         decoration: BoxDecoration(
@@ -136,11 +122,8 @@ class DrawerStyling extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, LoginScreen.id);
             },
-            leading: Hero(
-              tag: 'chat_icon',
-              child: Icon(
-                Icons.chat,
-              ),
+            leading: Icon(
+              Icons.chat,
             ),
             title: Text(
               'Meeting Chats',

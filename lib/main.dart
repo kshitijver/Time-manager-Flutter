@@ -25,7 +25,6 @@ class _TimeManagerState extends State<TimeManager> {
       theme: ThemeData.light(),
       initialRoute: MainScreen.id,
       routes: {
-        WelcomeScreen.id: (context) => WelcomeScreen(),
         MainScreen.id: (context) => MainScreen(),
         CalendarScreen.id: (context) => CalendarScreen(),
         LoginScreen.id: (context) => LoginScreen(),

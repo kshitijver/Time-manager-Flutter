@@ -10,8 +10,10 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatScreenState extends State<ChatScreen>
+    with SingleTickerProviderStateMixin {
   final messageTextController = TextEditingController();
+  AnimationController animationController;
   final _firestore = Firestore.instance;
   final _auth = FirebaseAuth.instance;
   FirebaseUser loggedInUser;
@@ -20,6 +22,8 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
     getCurrentUser();
   }
 
@@ -83,6 +87,11 @@ class _ChatScreenState extends State<ChatScreen> {
                     messageSender: messageSender,
                     messageText: messageText,
                     isItMe: currentUser == messageSender,
+                    onLongPress: () {
+                      setState(() {
+                        _firestore.collection('Messages').snapshots().toList();
+                      });
+                    },
                   );
                   messageBubbles.add(messageBubble);
                 }
@@ -138,7 +147,9 @@ class MessageBubble extends StatelessWidget {
   final String messageText;
   final String messageSender;
   final bool isItMe;
-  MessageBubble({this.messageSender, this.messageText, this.isItMe});
+  final Function onLongPress;
+  MessageBubble(
+      {this.messageSender, this.messageText, this.isItMe, this.onLongPress});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -157,18 +168,21 @@ class MessageBubble extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
-          child: Material(
-            borderRadius: BorderRadius.all(
-              Radius.circular(30.0),
-            ),
-            color: isItMe ? Colors.lightBlueAccent : Colors.grey,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 25),
-              child: Text(
-                messageText,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.0,
+          child: GestureDetector(
+            onLongPress: onLongPress,
+            child: Material(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30.0),
+              ),
+              color: isItMe ? Colors.lightBlueAccent : Colors.grey,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 25),
+                child: Text(
+                  messageText,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
                 ),
               ),
             ),
